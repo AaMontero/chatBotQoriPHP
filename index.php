@@ -84,13 +84,13 @@ function conversacion($mensaje)
         $respuesta .= '- Sábado 15 de abril\n';
     }
     else if ($mensaje == convertirMinNoTilde('cuál es el precio?')) {
-        $respuesta = 'Los precios para este paquete son los siguientes: (USD 450 por persona en habitación doble, USD 250 en habitación sencilla)';
+        $respuesta = 'Los precios para este paquete son los siguientes: (USD 450 por habitación doble, USD 250 en habitación sencilla)';
     }
     else if ($mensaje == convertirMinNoTilde('me gustaría reservar una habitacion doble para el 15 de marzo')) {
         $respuesta = 'Perfecto, ¿cómo prefiere realizar el pago? ¿Tarjeta o efectivo?';
     }
     else if ($mensaje == convertirMinNoTilde('en efectivo') ){
-        $respuesta = 'Excelente. Por favor, envíeme una captura de pantalla del depósito con el valor de (USD 480) al siguiente número: 2201700111.';
+        $respuesta = 'Excelente. Por favor, envíeme una captura de pantalla del depósito con el valor de (USD 450) al siguiente número: 2201700111.';
     }
     else if ($mensaje == convertirMinNoTilde('listo, ya realicé el depósito')) {
         $respuesta = 'En este momento estamos revisando la solicitud. Le confirmaremos por este medio cuando haya sido validada.';
