@@ -10,6 +10,7 @@ function enviar($recibido, $enviado, $idWA,$timestamp,$telefonoCliente) {
     $resultCantidad = $conn->query($sqlCantidad);
     //OBTENEMOS LA CANTIDAD DE MENSAJES ENCONTRADOS (SI ES 0 LO REGISTRAMOS SI NO NO)
     $cantidad = 0;
+    file_put_contents("textClienteNumero.txt", $telefonoCliente) ;
     //SI LA CONSULTA ARROJA RESULTADOS
     if ($resultCantidad) {
         //OBTENEMOS EL PRIMER REGISTRO
@@ -20,11 +21,9 @@ function enviar($recibido, $enviado, $idWA,$timestamp,$telefonoCliente) {
     //SI LA CANTIDAD DE REGISTROS ES 0 ENVIAMOS EL MENSAJE DE LO CONTRARIO NO LO ENVIAMOS PORQUE YA SE ENVIO
     if ($cantidad == 0) {
         //TOKEN QUE NOS DA FACEBOOK
-        $token = 'EAA0cGBz1VmwBO2gouLYam7baZB2RANxMYzwZCUmyNmSTQ1kDeP9WAvlH5mYULEFk6pSrtjz2mzzMtIlWc6dTk1JV1BpIriziUn2FLe23hqKJ57QSBHUGDBgpbYrncClZBkeb3zdwjQlUmukZBfTHjQjKFCSJZCsg5bobuWMNGhzadj6XfI7C5pD3Kp1T4ocBfMo9ZAg3ZBZBPiA01l02UnAZD';
-        //NUESTRO TELEFONO
-        $telefono = '593987411818';
+        $token = 'EAA0cGBz1VmwBO7GJhcxQdscVnjufj4TZB2qNohK5bwgmGVy548NsLxZBtHbCuutcReoVcab1TAweFZAbWtKlGHQCxQUOFiQjWZB0pUOvKTU7XFwmENtDF03esmboA5oZAl2kqBlIPl4Nb659aO7SThdqZCUwXX33w6718TE4g2jbShThdxk9OTyNb9j7IwZAb6c';
         //IDENTIFICADOR DE NÚMERO DE TELÉFONO
-        $telefonoID = '223628064166881';
+        $telefonoID = '258780720641927';
         //URL A DONDE SE MANDARA EL MENSAJE
         $url = 'https://graph.facebook.com/v15.0/' . $telefonoID . '/messages';
         //CONFIGURACION DEL MENSAJE
@@ -32,7 +31,7 @@ function enviar($recibido, $enviado, $idWA,$timestamp,$telefonoCliente) {
                 . '{'
                 . '"messaging_product": "whatsapp", '
                 . '"recipient_type": "individual",'
-                . '"to": "' . $telefono . '", '
+                . '"to": "' . $telefonoCliente . '", '
                 . '"type": "text", '
                 . '"text": '
                 . '{'
@@ -50,6 +49,7 @@ function enviar($recibido, $enviado, $idWA,$timestamp,$telefonoCliente) {
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         //OBTENEMOS LA RESPUESTA DEL ENVIO DE INFORMACION
         $response = json_decode(curl_exec($curl), true);
+        file_put_contents("response.txt", $response) ;
         //OBTENEMOS EL CODIGO DE LA RESPUESTA
         $status_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         //CERRAMOS EL CURL
