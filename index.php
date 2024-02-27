@@ -13,12 +13,15 @@ $token = 'TokenValidacion';
 $palabraReto = $_GET['hub_challenge'];
 //TOQUEN DE VERIFICACION QUE RECIBIREMOS DE FACEBOOK
 $tokenVerificacion = $_GET['hub_verify_token'];
+
 //SI EL TOKEN QUE GENERAMOS ES EL MISMO QUE NOS ENVIA FACEBOOK RETORNAMOS EL RETO PARA VALIDAR QUE SOMOS NOSOTROS
 if ($token === $tokenVerificacion) {
     echo $palabraReto;
     exit;
+}else{
+    echo("no esta llegando el mismo token"); 
 }
-
+file_put_contents("text1.txt", "Empieza el algoritmo");
 /*
  * RECEPCION DE MENSAJES
  */

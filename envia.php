@@ -21,7 +21,7 @@ function enviar($recibido, $enviado, $idWA,$timestamp,$telefonoCliente) {
     //SI LA CANTIDAD DE REGISTROS ES 0 ENVIAMOS EL MENSAJE DE LO CONTRARIO NO LO ENVIAMOS PORQUE YA SE ENVIO
     if ($cantidad == 0) {
         //TOKEN QUE NOS DA FACEBOOK
-        $token = 'EAA0cGBz1VmwBO7GJhcxQdscVnjufj4TZB2qNohK5bwgmGVy548NsLxZBtHbCuutcReoVcab1TAweFZAbWtKlGHQCxQUOFiQjWZB0pUOvKTU7XFwmENtDF03esmboA5oZAl2kqBlIPl4Nb659aO7SThdqZCUwXX33w6718TE4g2jbShThdxk9OTyNb9j7IwZAb6c';
+        $token = 'EAA0cGBz1VmwBO7JfpWGn8eR74d51Kk36ahQtEDTUo8nMow9Hytfmvpe2jCzWkQQrA1JzzDlN6aXen9myp9m75dYcLh7scSXdayhdmTwbjhMJzMb9UrgFqfFNzhxDSZCdPNtTSCq5y4gGS2Woi1gPHudZCp5jOivjJjAuiVY8qTwH50lQJIp6heMGp3yJpb';
         //IDENTIFICADOR DE NÚMERO DE TELÉFONO
         $telefonoID = '258780720641927';
         //URL A DONDE SE MANDARA EL MENSAJE
